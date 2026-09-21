@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "process-watch"
+version = "1.0.0"
+description = "A cross-platform CLI for inspecting and monitoring local processes safely."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Radwan Abdulhadi Ahmed"}]
+dependencies = ["psutil>=5.9,<8"]
+keywords = ["process", "monitoring", "cli", "system", "psutil"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+[project.scripts]
+process-watch = "process_watch.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/rad03i2/process-watch"
+Repository = "https://github.com/rad03i2/process-watch"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9"]
